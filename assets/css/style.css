@@ -1,0 +1,18 @@
+/* Global Styles */
+
+* {
+  box-sizing: border-box;
+  
+}
+
+
+.button {
+	display: block;
+	font-size: 32px;
+	margin: 24px auto;
+	padding: 12px;
+}
+
+.container {
+	border: 1px solid;
+}
