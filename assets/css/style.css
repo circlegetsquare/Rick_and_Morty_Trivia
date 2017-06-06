@@ -5,8 +5,7 @@
   
 }
 
-
-.button {
+.btn {
 	display: block;
 	font-size: 32px;
 	margin: 24px auto;
@@ -15,4 +14,32 @@
 
 .container {
 	border: 1px solid;
+	margin: 24px auto;
+	width: 800px;
+	font-family: helvetica;
+	font-size: 16px;
+}
+
+.content-box {
+	width: 80%;
+}
+
+.answer {
+	display: block;
+	width: 100%;
+	cursor: pointer;
+	padding: 10px 10px;
+	background-color: white;
+	text-align: left;
+	font-size: 16px;
+	border: none;
+}
+
+.answer:hover {
+	color: red;
+}
+
+.question {
+	margin-bottom: 10px;
+	font-weight: 800;
 }

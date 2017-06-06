@@ -1,41 +1,79 @@
 
-      /* VARIABLES */
-      var questions = [
+      /* QUESTIONS */
+
+    var questions = [
+
         {
-          question: "How many developers to screw in light bulb?",
-          answer: ["0", "1", "3", "4"],
-          correctAnswer: "0"
+            question: "First question goes here?",
+            answer: ["Zero", "One", "Two", "Three"],
+            correctAnswer: 0
         },
         {
-          question: "What is the best band of all time?",
-          answer: ["Beatles", "New Order", "ABBA", "Carley Rae Jepson"],
-          correctAnswer: "ABBA"        
+            question: "Second question goes here?",
+            answer: ["Four", "Five", "Six", "Seven", "Eight"],
+            correctAnswer: 1
+        },
+                {
+            question: "Third question goes here?",
+            answer: ["Nine", "Ten", "Eleven", "Twelve"],
+            correctAnswer: 2
         },
       ];
 
-      /* EVENTS */
-        /* initizlize */
-        /* button click */
+      /* INITIALIZE */
+
         $('#start').on('click', function() {
-          startGame();
+          game.resetGame();
         })
 
 
-      /* FUNCTIONS */
-      function startGame() {
-        var j = 0;
-        var questionString = '';
-        for(var i=0; i < questions.length; i++) {
-          j++;
+      /* GAME OBJECT */
 
-          var answerString = '';
-          
-          questionString = '<div>' + j + '. ' + questions[i].question + '</div>';
+    var game = {
 
-          for(var a=0; a < questions[i].answer.length; a++) {
-            answerString += '<input class="answer" type="radio">' + questions[i].answer[a] + '</input>';
-          }
+        questionNum: 0,
+        //questionString: '',
+        //answerString: '',        
 
-          $('#questions').append('<div class="question">' + questionString + answerString + '</div>');
-        }
-      }
+        resetGame: function() {
+            this.questionNum = 0,
+            this.displayQuestion();
+        },
+
+        displayQuestion: function() {
+
+            var answerString = '';
+            var questionString = '';
+            var questionNumDisplay = this.questionNum + 1
+            var answerNumDisplay = 1;
+            //var i = 0;
+            questionString = '<div class ="question">' + questionNumDisplay + '. ' + questions[this.questionNum].question + '</div>';
+            for(var i=0; i < questions[this.questionNum].answer.length; i++) {
+                answerString += '<button class="answer" value="' + i + '">' + answerNumDisplay + '. ' + questions[this.questionNum].answer[i] + '</button>';
+                answerNumDisplay++;
+                }
+            $('#question-box').html(questionString + answerString);
+            this.onClickAnswer();
+        },
+
+        onClickAnswer: function() {
+            $(".answer").on("click", function() {
+                var answerVal = parseInt($(this).val());
+                if (answerVal === questions[game.questionNum].correctAnswer) {
+                    alert("right!");
+                    //run correctAnswer();
+                }
+                else {
+                    alert("wrong!");
+                    //run wrongAnswer();
+                }
+                
+                game.questionNum++;
+                game.displayQuestion();
+            });
+            
+        },
+
+
+
+    };
