@@ -26,14 +26,14 @@
         },
       ];
 
-      /* INITIALIZE */
+    // INITIALIZE
 
         $('#start').on('click', function() {
           game.resetGame();
         })
 
 
-      /* GAME OBJECT */
+    // GAME OBJECT
 
     var game = {
 
@@ -54,7 +54,7 @@
 
         displayQuestion: function() {
             if (game.questionNum === 3) {
-                game.checkGameOver();
+                game.gameOver();
             }
             else {
             var answerString = '';
@@ -89,6 +89,7 @@
         },
 
         correctAnswer: function() {
+            timer.stopTimer();
             this.correctNum++;
             $('#correct-score').html(this.correctNum);
             $('#question-box').html('<div><p>Correct!</p></div>' + questions[this.questionNum].correctHTML);
@@ -97,6 +98,7 @@
         },
 
         missedAnswer: function() {
+            timer.stopTimer();
             this.missedNum++;
             $('#missed-score').html(this.missedNum);
             $('#question-box').html('<div><p>Nope!</p></div>' + questions[this.questionNum].missedHTML);
@@ -105,8 +107,7 @@
         },
 
         noAnswer: function() {
-            timer.timerRunning=false;
-            $("#timer").html("0");
+            timer.stopTimer();
             this.noAnswerNum++;
             $('#no-answer-score').html(this.noAnswerNum);
             $('#question-box').html('<div><p>Too Late...</p></div>' + questions[this.questionNum].missedHTML);
@@ -114,13 +115,15 @@
             setTimeout(this.displayQuestion, 2000);
         },
 
-        checkGameOver: function() {
-            timer.timerRunning=false;
-            $("#timer").html("0");
-            $('#question-box').html('<div><p>GAME OVAH...</p></div>');
+        gameOver: function() {
+            timer.stopTimer();
+            $('#question-box').html('<div><p>GAME OVAH...</p></div><button id="start" class="btn">Start Over</button>');
             this.questionNum++;
+            $('#start').on('click', function() {game.resetGame();})
         },
     };
+
+    // TIMER OBJECT
 
     var timer = {
 
@@ -141,9 +144,14 @@
                 $("#timer").html(timer.time);
                 if (timer.time === 0) {
                     game.noAnswer();
-                    clearInterval(intervalId);
                 }
             }
         },
+
+        stopTimer: function() {
+            clearInterval(intervalId);
+            timer.timerRunning=false;
+            $("#timer").html(" ");
+        }
     };
 
