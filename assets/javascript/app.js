@@ -4,21 +4,21 @@
     var questions = [
 
         {
-            question: "First question goes here?",
+            question: "First question goes here",
             answer: ["Zero", "One", "Two", "Three"],
             correctAnswer: 0,
             correctHTML: '<div><p>Content for correct answer 1</p></div>',
             missedHTML: '<div><p>Content for incorrect answer 1</p></div>',
         },
         {
-            question: "Second question goes here?",
+            question: "Second question goes here",
             answer: ["Four", "Five", "Six", "Seven", "Eight"],
             correctAnswer: 1,
             correctHTML: '<div><p>Content for correct answer 2</p></div>',
             missedHTML: '<div><p>Content for incorrect answer 2</p></div>',
         },
                 {
-            question: "Third question goes here?",
+            question: "Third question goes here",
             answer: ["Nine", "Ten", "Eleven", "Twelve"],
             correctAnswer: 2,
             correctHTML: '<div><p>Content for correct answer 3</p></div>',
@@ -53,6 +53,10 @@
         },
 
         displayQuestion: function() {
+            if (game.questionNum === 3) {
+                game.checkGameOver();
+            }
+            else {
             var answerString = '';
             var questionString = '';
             var questionNumDisplay = game.questionNum + 1;
@@ -65,6 +69,8 @@
                 }
             $('#question-box').html(questionString + answerString);
             game.onClickAnswer();
+            timer.reset();
+            }
         },
 
         onClickAnswer: function() {
@@ -80,10 +86,6 @@
                 }
             });
             
-        },
-
-        onTimedOut: function() {
-            noAnswer();
         },
 
         correctAnswer: function() {
@@ -103,13 +105,45 @@
         },
 
         noAnswer: function() {
+            timer.timerRunning=false;
+            $("#timer").html("0");
             this.noAnswerNum++;
             $('#no-answer-score').html(this.noAnswerNum);
             $('#question-box').html('<div><p>Too Late...</p></div>' + questions[this.questionNum].missedHTML);
             this.questionNum++;
             setTimeout(this.displayQuestion, 2000);
-        }
+        },
 
-
-
+        checkGameOver: function() {
+            timer.timerRunning=false;
+            $("#timer").html("0");
+            $('#question-box').html('<div><p>GAME OVAH...</p></div>');
+            this.questionNum++;
+        },
     };
+
+    var timer = {
+
+      time: 0,
+      timerRunning: false,
+      intervalID: 0,
+
+        reset: function() {
+            timer.time = 5;
+            $("#timer").html("5");
+            intervalId = setInterval(timer.count, 1000);
+            timer.timerRunning = true;
+        },
+
+        count: function() {
+            if (timer.timerRunning){
+                timer.time--;
+                $("#timer").html(timer.time);
+                if (timer.time === 0) {
+                    game.noAnswer();
+                    clearInterval(intervalId);
+                }
+            }
+        },
+    };
+
