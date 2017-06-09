@@ -47,7 +47,7 @@
             this.correctNum = 0;
             this.wrongNum = 0;
             this.noAnswerNum = 0;
-            $('#score-box').html('<div class="score">Correct: <span id="correct-score">0</span></div><div class="score">Missed: <span id="missed-score">0</span></div><div class="score">No Answer: <span id="no-answer-score">0</span></div>')
+            $('#score-js').html('<div class="score">Yep: <span id="correct-score">0</span></div><div class="score">Nope: <span id="missed-score">0</span></div><div class="score">Huh?: <span id="no-answer-score">0</span></div>')
             this.displayQuestion();
 
         },
@@ -67,7 +67,7 @@
                 answerString += '<button class="answer" value="' + i + '">' + answerNumDisplay + '. ' + questions[game.questionNum].answer[i] + '</button>';
                 answerNumDisplay++;
                 }
-            $('#question-box').html(questionString + answerString);
+            $('#question-js').html(questionString + answerString);
             game.onClickAnswer();
             timer.reset();
             }
@@ -92,7 +92,7 @@
             timer.stopTimer();
             this.correctNum++;
             $('#correct-score').html(this.correctNum);
-            $('#question-box').html('<div><p>Correct!</p></div>' + questions[this.questionNum].correctHTML);
+            $('#question-js').html('<div><p>Correct!</p></div>' + questions[this.questionNum].correctHTML);
             this.questionNum++;
             setTimeout(this.displayQuestion, 2000);
         },
@@ -101,7 +101,7 @@
             timer.stopTimer();
             this.missedNum++;
             $('#missed-score').html(this.missedNum);
-            $('#question-box').html('<div><p>Nope!</p></div>' + questions[this.questionNum].missedHTML);
+            $('#question-js').html('<div><p>Nope!</p></div>' + questions[this.questionNum].missedHTML);
             this.questionNum++;
             setTimeout(this.displayQuestion, 2000);
         },
@@ -110,14 +110,14 @@
             timer.stopTimer();
             this.noAnswerNum++;
             $('#no-answer-score').html(this.noAnswerNum);
-            $('#question-box').html('<div><p>Too Late...</p></div>' + questions[this.questionNum].missedHTML);
+            $('#question-js').html('<div><p>Too Late...</p></div>' + questions[this.questionNum].missedHTML);
             this.questionNum++;
             setTimeout(this.displayQuestion, 2000);
         },
 
         gameOver: function() {
             timer.stopTimer();
-            $('#question-box').html('<div><p>GAME OVAH...</p></div><button id="start" class="btn">Start Over</button>');
+            $('#question-js').html('<div><p>GAME OVAH...</p></div><button id="start" class="btn">Try Again</button>');
             this.questionNum++;
             $('#start').on('click', function() {game.resetGame();})
         },
@@ -133,7 +133,7 @@
 
         reset: function() {
             timer.time = 5;
-            $("#timer").html("5");
+            $("#timer-js").html("Time: 5");
             intervalId = setInterval(timer.count, 1000);
             timer.timerRunning = true;
         },
@@ -141,8 +141,8 @@
         count: function() {
             if (timer.timerRunning){
                 timer.time--;
-                $("#timer").html(timer.time);
-                if (timer.time === 0) {
+                $("#timer-js").html('<div>Time: ' + timer.time + '</div>');
+                if (timer.time < 0) {
                     game.noAnswer();
                 }
             }
@@ -151,7 +151,7 @@
         stopTimer: function() {
             clearInterval(intervalId);
             timer.timerRunning=false;
-            $("#timer").html(" ");
+            $("#timer-js").html('Time: ');
         }
     };
 

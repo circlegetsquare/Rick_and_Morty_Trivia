@@ -7,20 +7,32 @@
 
 .btn {
 	display: block;
-	font-size: 32px;
+	font-size: 24px;
 	margin: 24px auto;
 	padding: 12px;
+}
+
+.header {
+	width: 100%;
+	background-color:#303030;
+	color: #ffffff;
+	font-size: 48px;
+	height: 170px;
+	line-height: 170px;
+	text-align: center;
+	font-family: 'Cutive Mono', helvetica;
 }
 
 .container {
 	border: 1px solid;
 	margin: 24px auto;
-	width: 800px;
+	width: 1024px;
 	font-family: helvetica;
-	font-size: 16px;
+	font-size: 18px;
+
 }
 
-.content-box {
+.content {
 	width: 80%;
 }
 
@@ -31,12 +43,27 @@
 	padding: 10px 10px;
 	background-color: white;
 	text-align: left;
-	font-size: 16px;
+	font-size: 18px;
 	border: none;
 }
 
 .answer:hover {
 	color: red;
+}
+
+.timer-box {
+	clear: both;
+	font-size: 24px;
+	height: 50px;
+	line-height: 50px;
+	border: 1px solid;
+	text-align: left;
+	display: block;
+}
+
+.score-box {
+	overflow: auto;
+	width: 600px;
 }
 
 .question {
@@ -45,5 +72,8 @@
 }
 
 .score {
-	margin:15px 0;
+	float: left;
+	font-size: 32px;
+	width: 33.333%;
+	text-align: center;
 }
