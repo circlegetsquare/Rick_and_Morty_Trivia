@@ -16,7 +16,7 @@
             answerImage: '<img class="answerImg" src="assets/images/tiny_rick.gif">',
         },
         {
-            question: "In order to persuade Morty's math teacher, Mr. Goldenfold,  to asign less homework, Rick and Morty:",
+            question: "In order to persuade Morty's math teacher, Mr. Goldenfold,  to assign less homework, Rick and Morty:",
             answer: ["Make their dog Snuffles super-intelligent to scare him.", "Enter Mr. Goldenfold's dreams.", "Go back in time to make him hate math.", "Blow up the high school."],
             correctAnswer: 1,
             answerImage: '<img class="answerImg" src="assets/images/Inception.gif">',
@@ -49,19 +49,19 @@
             question: "Jerry's (Morty's dad's) favorite musical is:",
             answer: ["Cats", "Shawshank Redemption: The Musical", "Popeye", "Hulk: The Musical"],
             correctAnswer: 3,
-            answerImage: '<img class="answerImg" src="assets/images/jerry_hulk.gif"></p></div>',
+            answerImage: '<img class="answerImg" src="assets/images/jerry_hulk.gif">',
         },
        {
             question: "Where is Rick at the end of Season 2 [SPOILER!]:",
             answer: ["Galactic Prison", "Going on an adventure with Morty", "At Birdperson's wedding", "Drunk in his workshop"],
             correctAnswer: 0,
-            answerImage: '<img class="answerImg" src="assets/images/rick_prison.gif"></p></div>',
+            answerImage: '<img class="answerImg" src="assets/images/rick_prison.gif">',
         },
        {
             question: "In order to save earth, Rick and Morty write this hit song:",
             answer: ["Don't Flip on My Steez", "You Know I'm Rick", "Get Schwifty", "Hands Off My Flubus"],
             correctAnswer: 2,
-            answerImage: '<img class="answerImg" src="assets/images/get_schwifty.gif"></p></div>',
+            answerImage: '<img class="answerImg" src="assets/images/get_schwifty.gif">',
         },
       ];
 
@@ -164,7 +164,7 @@
         gameOver: function() {
             timer.stopTimer();
             $('#btn-holder-js').html('<button id="start" class="btn">PLAY AGAIN!</button>');
-            $('#question-js').html('<img class="answerImg" src="assets/images/Like_what_you_got.gif"></p></div>');
+            $('#question-js').html('<img class="answerImg" src="assets/images/Like_what_you_got.gif">');
             $('#timer-js').html('GAME OVER!')
             this.questionNum++;
             $('#start').on('click', function() {game.resetGame();})
