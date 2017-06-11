@@ -22,13 +22,13 @@
             answerImage: '<img class="answerImg" src="assets/images/inception.gif">',
         },
         {
-            question: "Beth (Morty's mom's) favorite drink is?",
+            question: "Beth's (Morty's mom's) favorite drink is?",
             answer: ["Orange juice", "Vodka", "Le Crap Sparking Flavored Water", "Wine"],
             correctAnswer: 3,
             answerImage: '<img class="answerImg" src="assets/images/drinks_wine.gif">',
         },
         {
-            question: "What the name of the blue creatures creatures created to serve a singular purpose for which they will go to any length to fulfill? (After they serve their purpose, they expire and vanish into the air.)",
+            question: "What the name of the blue creatures created to serve a singular purpose for which they will go to any length to fulfill?",
             answer: ["Glip glorps", "Flurbens", "Mr. Meeseeks", "Jerry"],
             correctAnswer: 2,
             answerImage: '<img class="answerImg"  src="assets/images/meeseeks.gif">',
@@ -52,7 +52,7 @@
             answerImage: '<img class="answerImg" src="assets/images/jerry_hulk.gif"></p></div>',
         },
        {
-            question: "Rick ends season 2 where:",
+            question: "Where is Rick at the end of Season 2 [SPOILER!]:",
             answer: ["Galactic Prison", "Going on an adventure with Morty", "At Birdperson's wedding", "Drunk in his workshop"],
             correctAnswer: 0,
             answerImage: '<img class="answerImg" src="assets/images/rick_prison.gif"></p></div>',
@@ -104,7 +104,6 @@
             var questionString = '';
             var questionNumDisplay = game.questionNum + 1;
             var answerNumDisplay = 1;
-            console.log(questions[game.questionNum].question);
             questionString = '<div class ="question">' + questionNumDisplay + '. ' + questions[game.questionNum].question + '</div>';
             for(var i=0; i < questions[game.questionNum].answer.length; i++) {
                 answerString += '<button class="answer" value="' + i + '">' + answerNumDisplay + '. ' + questions[game.questionNum].answer[i] + '</button>';
@@ -164,7 +163,8 @@
 
         gameOver: function() {
             timer.stopTimer();
-            $('#question-js').html('<img class="answerImg" src="assets/images/like_what_you_got.gif"></p></div><button id="start" class="btn">SHOW ME WHAT YOU GOT AGAIN!</button>');
+            $('#btn-holder-js').html('<button id="start" class="btn">PLAY AGAIN!</button>');
+            $('#question-js').html('<img class="answerImg" src="assets/images/like_what_you_got.gif"></p></div>');
             $('#timer-js').html('GAME OVER!')
             this.questionNum++;
             $('#start').on('click', function() {game.resetGame();})

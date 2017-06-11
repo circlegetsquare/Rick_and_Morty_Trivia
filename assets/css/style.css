@@ -2,13 +2,24 @@
 
 * {
   box-sizing: border-box;
-  
+}
+
+body {
+	background-color: #00afc7;
 }
 
 p {
 	margin: 10px 0px;
 }
 
+.wrapper {
+	border: 1px solid;
+	width: 1024px;
+	margin: 0px auto;
+	height: 97vh;
+	background-color: #ffffff;
+	overflow: auto;
+}
 .btn {
 	display: block;
 	font-size: 18px;
@@ -17,27 +28,31 @@ p {
 }
 
 .header {
-	width: 100%;
+	width: 1024px;
 	background-color: #000000;
 	color: #ffffff;
-	height: 257px;
+	height: 201px;
 	text-align: center;
+	margin: 0px auto;
 }
 
 .timer-box {
-	font-size: 36px;
+	font-size: 34px;
 	height: 55px;
 	line-height: 55px;
-	background: #000000;
+	background: #99be4c;
 	color: #ffffff;
 	margin: 0px auto;
 	text-align: center;
 	font-family: helvetica;
 	font-weight: 800;
+	clear: both;
+	margin-bottom: 20px;
+
 }
 
 .container {
-	margin: 24px auto;
+	margin: 15px auto;
 	width: 1024px;
 	font-family: helvetica;
 	font-size: 20px;
@@ -79,17 +94,31 @@ p {
 }
 
 .question {
-	margin-bottom: 10px;
+	margin-bottom: 20px;
+	font-weight: 800;
+}
+
+.question-box {
+	margin: 35px auto;
 	font-weight: 800;
 }
 
 .score {
 	float: left;
-	font-size: 32px;
+	font-size: 28px;
 	width: 33.333%;
 	text-align: center;
-	font-weight: 800;
 	color: #303030;
 	margin-bottom: 10px;
+	font-weight: 300;
+	border-right: 1px dotted;
+}
+
+.first {
+	border-left: 1px dotted;
+}
+
+.score-type {
+	font-weight: 800;
 }
 
