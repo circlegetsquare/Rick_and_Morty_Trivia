@@ -5,30 +5,46 @@
   
 }
 
+p {
+	margin: 10px 0px;
+}
+
 .btn {
 	display: block;
-	font-size: 24px;
-	margin: 24px auto;
+	font-size: 18px;
+	margin: 50px auto;
 	padding: 12px;
 }
 
 .header {
 	width: 100%;
-	background-color:#303030;
+	background-color: #000000;
 	color: #ffffff;
-	font-size: 48px;
-	height: 170px;
-	line-height: 170px;
+	height: 257px;
 	text-align: center;
-	font-family: 'Cutive Mono', helvetica;
+}
+
+.timer-box {
+	font-size: 36px;
+	height: 55px;
+	line-height: 55px;
+	background: #000000;
+	color: #ffffff;
+	margin: 0px auto;
+	text-align: center;
+	font-family: helvetica;
+	font-weight: 800;
 }
 
 .container {
-	border: 1px solid;
 	margin: 24px auto;
 	width: 1024px;
 	font-family: helvetica;
-	font-size: 18px;
+	font-size: 20px;
+	padding: 0 75px;
+	font-weight: 800;
+	color: #303030;
+	text-align: left;
 
 }
 
@@ -43,22 +59,18 @@
 	padding: 10px 10px;
 	background-color: white;
 	text-align: left;
-	font-size: 18px;
+	font-size: 20px;
 	border: none;
+	font-weight: 300;
 }
 
 .answer:hover {
 	color: red;
 }
 
-.timer-box {
-	clear: both;
-	font-size: 24px;
-	height: 50px;
-	line-height: 50px;
-	border: 1px solid;
-	text-align: left;
-	display: block;
+.cntr {
+	margin: 0 auto;
+	text-align: center;
 }
 
 .score-box {
@@ -76,4 +88,8 @@
 	font-size: 32px;
 	width: 33.333%;
 	text-align: center;
+	font-weight: 800;
+	color: #303030;
+	margin-bottom: 10px;
 }
+

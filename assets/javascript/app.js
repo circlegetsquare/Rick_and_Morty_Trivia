@@ -4,25 +4,64 @@
     var questions = [
 
         {
-            question: "First question goes here",
-            answer: ["Zero", "One", "Two", "Three"],
-            correctAnswer: 0,
-            correctHTML: '<div><p>Content for correct answer 1</p></div>',
-            missedHTML: '<div><p>Content for incorrect answer 1</p></div>',
+            question: "What is Rick's favorite catch phrase?",
+            answer: ["Heeey gimme dat frizz!", "You can't get to party with Rick!", "Wubba lubba dub dub!", "Squeeee-dat!"],
+            correctAnswer: 2,
+            answerImage: '<img class="answerImg" src="assets/images/WubbaLubbaDubDub.gif">',
         },
         {
-            question: "Second question goes here",
-            answer: ["Four", "Five", "Six", "Seven", "Eight"],
-            correctAnswer: 1,
-            correctHTML: '<div><p>Content for correct answer 2</p></div>',
-            missedHTML: '<div><p>Content for incorrect answer 2</p></div>',
+            question: "In order to blend into Morty's high school, Rick turned himself into:",
+            answer: ["Tiny Rick", "Invisible Rick", "Janitor Rick", "A frisbee"],
+            correctAnswer: 0,
+            answerImage: '<img class="answerImg" src="assets/images/tiny_rick.gif">',
         },
-                {
-            question: "Third question goes here",
-            answer: ["Nine", "Ten", "Eleven", "Twelve"],
+        {
+            question: "In order to persuade Morty's math teacher, Mr. Goldenfold,  to asign less homework, Rick and Morty:",
+            answer: ["Make their dog Snuffles super-intelligent to scare him.", "Enter Mr. Goldenfold's dreams.", "Go back in time to make him hate math.", "Blow up the high school."],
+            correctAnswer: 1,
+            answerImage: '<img class="answerImg" src="assets/images/inception.gif">',
+        },
+        {
+            question: "Beth (Morty's mom's) favorite drink is?",
+            answer: ["Orange juice", "Vodka", "Le Crap Sparking Flavored Water", "Wine"],
+            correctAnswer: 3,
+            answerImage: '<img class="answerImg" src="assets/images/drinks_wine.gif">',
+        },
+        {
+            question: "What the name of the blue creatures creatures created to serve a singular purpose for which they will go to any length to fulfill? (After they serve their purpose, they expire and vanish into the air.)",
+            answer: ["Glip glorps", "Flurbens", "Mr. Meeseeks", "Jerry"],
             correctAnswer: 2,
-            correctHTML: '<div><p>Content for correct answer 3</p></div>',
-            missedHTML: '<div><p>Content for incorrect answer 3</p></div>',
+            answerImage: '<img class="answerImg"  src="assets/images/meeseeks.gif">',
+        },
+       {
+            question: "Once Morty's dog Snuffles becomes super-intelligent (and re-names himself Snowball), what is he upset about that's missing?",
+            answer: ["His collar", "His tennis ball", "His bone", "His testicles"],
+            correctAnswer: 3,
+            answerImage: '<img class="answerImg" src="assets/images/snuffles.gif">',
+        },
+       {
+            question: "Beth's profession is:",
+            answer: ["Equine vascular surgeon", "Underwater basket weaver", "Alien secret agent", "Mayor"],
+            correctAnswer: 0,
+            answerImage: '<img class="answerImg" src="assets/images/beth_horse.gif">',
+        },
+       {
+            question: "Jerry's (Morty's dad's) favorite musical is:",
+            answer: ["Cats", "Shawshank Redemption: The Musical", "Popeye", "Hulk: The Muscial"],
+            correctAnswer: 3,
+            answerImage: '<img class="answerImg" src="assets/images/jerry_hulk.gif"></p></div>',
+        },
+       {
+            question: "Rick ends season 2 where:",
+            answer: ["Galactic Prison", "Going on an adventure with Morty", "At Birdperson's wedding", "Drunk in his workshop"],
+            correctAnswer: 0,
+            answerImage: '<img class="answerImg" src="assets/images/rick_prison.gif"></p></div>',
+        },
+       {
+            question: "In order to save earth, Rick and Morty write this hit song:",
+            answer: ["Don't Flip on My Steez", "You Know I'm Rick", "Get Schwifty", " Hands Off My Flubus"],
+            correctAnswer: 2,
+            answerImage: '<img class="answerImg" src="assets/images/get_schwifty.gif"></p></div>',
         },
       ];
 
@@ -47,13 +86,17 @@
             this.correctNum = 0;
             this.wrongNum = 0;
             this.noAnswerNum = 0;
-            $('#score-js').html('<div class="score">Yep: <span id="correct-score">0</span></div><div class="score">Nope: <span id="missed-score">0</span></div><div class="score">Huh?: <span id="no-answer-score">0</span></div>')
+            $('#correct-score').html(0);
+            $('#missed-score').html(0);
+            $('#no-answer-score-score').html(0);
+            $('#btn-holder-js').empty();
             this.displayQuestion();
 
         },
 
         displayQuestion: function() {
-            if (game.questionNum === 3) {
+            $('#image-js').empty();
+            if (game.questionNum === 10) {
                 game.gameOver();
             }
             else {
@@ -77,11 +120,9 @@
             $(".answer").on("click", function() {
                 var answerVal = parseInt($(this).val());
                 if (answerVal === questions[game.questionNum].correctAnswer) {
-                    alert("right!");
                     game.correctAnswer();
                 }
                 else {
-                    alert("wrong!");
                     game.missedAnswer();
                 }
             });
@@ -92,32 +133,39 @@
             timer.stopTimer();
             this.correctNum++;
             $('#correct-score').html(this.correctNum);
-            $('#question-js').html('<div><p>Correct!</p></div>' + questions[this.questionNum].correctHTML);
+            $('#question-js').html('A: ' + questions[game.questionNum].answer[questions[this.questionNum].correctAnswer]);
+            $('#image-js').html(questions[this.questionNum].answerImage);
+            $('#timer-js').html('GOT IT!')
             this.questionNum++;
-            setTimeout(this.displayQuestion, 2000);
+            setTimeout(this.displayQuestion, 6000);
         },
 
         missedAnswer: function() {
             timer.stopTimer();
             this.missedNum++;
             $('#missed-score').html(this.missedNum);
-            $('#question-js').html('<div><p>Nope!</p></div>' + questions[this.questionNum].missedHTML);
+            $('#question-js').html('A: ' + questions[game.questionNum].answer[questions[this.questionNum].correctAnswer]);
+            $('#image-js').html(questions[this.questionNum].answerImage);
+            $('#timer-js').html('NOPE!')
             this.questionNum++;
-            setTimeout(this.displayQuestion, 2000);
+            setTimeout(this.displayQuestion, 6000);
         },
 
         noAnswer: function() {
             timer.stopTimer();
             this.noAnswerNum++;
             $('#no-answer-score').html(this.noAnswerNum);
-            $('#question-js').html('<div><p>Too Late...</p></div>' + questions[this.questionNum].missedHTML);
+            $('#question-js').html('A: ' + questions[game.questionNum].answer[questions[this.questionNum].correctAnswer]);
+            $('#image-js').html(questions[this.questionNum].answerImage);
+            $('#timer-js').html('TOO LATE!')
             this.questionNum++;
-            setTimeout(this.displayQuestion, 2000);
+            setTimeout(this.displayQuestion, 6000);
         },
 
         gameOver: function() {
             timer.stopTimer();
-            $('#question-js').html('<div><p>GAME OVAH...</p></div><button id="start" class="btn">Try Again</button>');
+            $('#question-js').html('<img class="answerImg" src="assets/images/like_what_you_got.gif"></p></div><button id="start" class="btn">SHOW ME WHAT YOU GOT AGAIN!</button>');
+            $('#timer-js').html('GAME OVER!')
             this.questionNum++;
             $('#start').on('click', function() {game.resetGame();})
         },
@@ -132,8 +180,8 @@
       intervalID: 0,
 
         reset: function() {
-            timer.time = 5;
-            $("#timer-js").html("Time: 5");
+            timer.time = 10;
+            $("#timer-js").html("10");
             intervalId = setInterval(timer.count, 1000);
             timer.timerRunning = true;
         },
@@ -141,7 +189,7 @@
         count: function() {
             if (timer.timerRunning){
                 timer.time--;
-                $("#timer-js").html('<div>Time: ' + timer.time + '</div>');
+                $("#timer-js").html('<div>' + timer.time + '</div>');
                 if (timer.time < 0) {
                     game.noAnswer();
                 }
@@ -151,7 +199,7 @@
         stopTimer: function() {
             clearInterval(intervalId);
             timer.timerRunning=false;
-            $("#timer-js").html('Time: ');
+            $("#timer-js").html('');
         }
     };
 

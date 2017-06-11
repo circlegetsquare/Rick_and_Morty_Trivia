@@ -2,23 +2,47 @@
 <html lang="en-us">
     <head>
         <meta charset="UTF-8">
-        <title>Trivia Game -- Joshua Miller</title>
+        <title>Rick and MortyTrivia Game -- Joshua Miller</title>
         <link href="assets/css/reset.css" rel="stylesheet">
         <link href="assets/css/style.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Bungee+Inline|Cutive+Mono" rel="stylesheet">
     </head>
 
     <body>
-        <div class="header">Trivia Game</div>
+        <div class="header"><img src="assets/images/Rick_Morty-Header.jpg"></div>
+
         <div class="container">
 
             <div id="score-js" class="container content score-box">
-                <button id="start" class="btn">SHOW ME WHAT YOU GOT!</button>
+
+                <div class="score"><p>Yep</p>
+                    <div id="correct-score">0</div>
+                </div>
+
+                <div class="score"><p>Nope</p>
+                    <div id="missed-score">0</div>
+                </div>
+
+                <div class="score"><p>Huh?</p>
+                    <div id="no-answer-score">0</div>
+                </div>                   
+                    
             </div>
+        </div>
+
+        <div id="timer-js" class="timer-box"></div>
+
+        <div class="container">
+
+
             
-            <div id="timer-js" class="container content timer-box"></div>
+            <div id="btn-holder-js"><button id="start" class="btn">SHOW ME WHAT YOU GOT!</button></div>
  
             <div id="question-js" class="container content question-box"></div>
+
+            <div class="container content question-box">
+                <div id="image-js" class="cntr"></div>
+            </div>
 
         </div>
 
