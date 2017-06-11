@@ -135,7 +135,7 @@
             this.correctNum++;
             $('#correct-score').html(this.correctNum);
             $('#timer-js').html('GOT IT!')
-            setTimeout(this.answerContent, 3000);
+            setTimeout(this.answerContent, 3500);
         },
 
         missedAnswer: function() {
@@ -145,7 +145,7 @@
             this.missedNum++;
             $('#missed-score').html(this.missedNum);
             $('#timer-js').html('NOPE!')
-            setTimeout(this.answerContent, 3000);
+            setTimeout(this.answerContent, 3500);
         },
 
         noAnswer: function() {
@@ -156,7 +156,7 @@
             $('#no-answer-score').html(this.noAnswerNum);
             $('#timer-js').html('TOO LATE!')
             this.questionNum++;
-            setTimeout(this.answerContent, 3000);
+            setTimeout(this.answerContent, 3500);
         },
 
         gameOver: function() {
@@ -169,7 +169,7 @@
         },
 
         answerContent: function() {
-            $('#question-js').html('A: ' + questions[game.questionNum].answer[questions[game.questionNum].correctAnswer]);
+            $('#question-js').html('Answer: ' + questions[game.questionNum].answer[questions[game.questionNum].correctAnswer]);
             $('#image-js').html(questions[game.questionNum].answerImage);
             game.questionNum++;
             setTimeout(game.displayQuestion, 6000);
