@@ -20,6 +20,7 @@ p {
 	background-color: #ffffff;
 	overflow: auto;
 }
+
 .btn {
 	display: block;
 	font-size: 18px;
@@ -81,6 +82,7 @@ p {
 
 .answer:hover {
 	color: red;
+	font-weight: 800;
 }
 
 .cntr {

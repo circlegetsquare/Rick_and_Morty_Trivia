@@ -1,5 +1,5 @@
 
-      /* QUESTIONS */
+    // QUESTIONS
 
     var questions = [
 
@@ -29,7 +29,7 @@
         },
         {
             question: "What the name of the blue creatures created to serve a singular purpose for which they will go to any length to fulfill?",
-            answer: ["Glip glorps", "Flurbens", "Mr. Meeseeks", "Jerry"],
+            answer: ["Glip Glorps", "Flurbens", "Mr. Meeseeks", "Jerry"],
             correctAnswer: 2,
             answerImage: '<img class="answerImg"  src="assets/images/meeseeks.gif">',
         },
@@ -164,7 +164,7 @@
         gameOver: function() {
             timer.stopTimer();
             $('#btn-holder-js').html('<button id="start" class="btn">PLAY AGAIN!</button>');
-            $('#question-js').html('<img class="answerImg" src="assets/images/like_what_you_got.gif"></p></div>');
+            $('#question-js').html('<img class="answerImg" src="assets/images/Like_what_you_got.gif"></p></div>');
             $('#timer-js').html('GAME OVER!')
             this.questionNum++;
             $('#start').on('click', function() {game.resetGame();})
