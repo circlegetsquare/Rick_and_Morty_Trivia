@@ -130,35 +130,33 @@
 
         correctAnswer: function() {
             timer.stopTimer();
+            $('#question-js').empty();
+            $('#image-js').html('<img class="answerImg" src="assets/images/all_dancing.gif">');
             this.correctNum++;
             $('#correct-score').html(this.correctNum);
-            $('#question-js').html('A: ' + questions[game.questionNum].answer[questions[this.questionNum].correctAnswer]);
-            $('#image-js').html(questions[this.questionNum].answerImage);
             $('#timer-js').html('GOT IT!')
-            this.questionNum++;
-            setTimeout(this.displayQuestion, 6000);
+            setTimeout(this.answerContent, 3000);
         },
 
         missedAnswer: function() {
             timer.stopTimer();
+            $('#question-js').empty();
+            $('#image-js').html('<img class="answerImg" src="assets/images/sad_robot.gif">');
             this.missedNum++;
             $('#missed-score').html(this.missedNum);
-            $('#question-js').html('A: ' + questions[game.questionNum].answer[questions[this.questionNum].correctAnswer]);
-            $('#image-js').html(questions[this.questionNum].answerImage);
             $('#timer-js').html('NOPE!')
-            this.questionNum++;
-            setTimeout(this.displayQuestion, 6000);
+            setTimeout(this.answerContent, 3000);
         },
 
         noAnswer: function() {
             timer.stopTimer();
+            $('#question-js').empty();
+            $('#image-js').html('<img class="answerImg" src="assets/images/hate_player_hate_game.gif">');
             this.noAnswerNum++;
             $('#no-answer-score').html(this.noAnswerNum);
-            $('#question-js').html('A: ' + questions[game.questionNum].answer[questions[this.questionNum].correctAnswer]);
-            $('#image-js').html(questions[this.questionNum].answerImage);
             $('#timer-js').html('TOO LATE!')
             this.questionNum++;
-            setTimeout(this.displayQuestion, 6000);
+            setTimeout(this.answerContent, 3000);
         },
 
         gameOver: function() {
@@ -168,6 +166,13 @@
             $('#timer-js').html('GAME OVER!')
             this.questionNum++;
             $('#start').on('click', function() {game.resetGame();})
+        },
+
+        answerContent: function() {
+            $('#question-js').html('A: ' + questions[game.questionNum].answer[questions[game.questionNum].correctAnswer]);
+            $('#image-js').html(questions[game.questionNum].answerImage);
+            game.questionNum++;
+            setTimeout(game.displayQuestion, 6000);
         },
     };
 
