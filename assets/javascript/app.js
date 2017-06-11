@@ -19,7 +19,7 @@
             question: "In order to persuade Morty's math teacher, Mr. Goldenfold,  to asign less homework, Rick and Morty:",
             answer: ["Make their dog Snuffles super-intelligent to scare him.", "Enter Mr. Goldenfold's dreams.", "Go back in time to make him hate math.", "Blow up the high school."],
             correctAnswer: 1,
-            answerImage: '<img class="answerImg" src="assets/images/inception.gif">',
+            answerImage: '<img class="answerImg" src="assets/images/Inception.gif">',
         },
         {
             question: "Beth's (Morty's mom's) favorite drink is?",
@@ -47,7 +47,7 @@
         },
        {
             question: "Jerry's (Morty's dad's) favorite musical is:",
-            answer: ["Cats", "Shawshank Redemption: The Musical", "Popeye", "Hulk: The Muscial"],
+            answer: ["Cats", "Shawshank Redemption: The Musical", "Popeye", "Hulk: The Musical"],
             correctAnswer: 3,
             answerImage: '<img class="answerImg" src="assets/images/jerry_hulk.gif"></p></div>',
         },
@@ -59,7 +59,7 @@
         },
        {
             question: "In order to save earth, Rick and Morty write this hit song:",
-            answer: ["Don't Flip on My Steez", "You Know I'm Rick", "Get Schwifty", " Hands Off My Flubus"],
+            answer: ["Don't Flip on My Steez", "You Know I'm Rick", "Get Schwifty", "Hands Off My Flubus"],
             correctAnswer: 2,
             answerImage: '<img class="answerImg" src="assets/images/get_schwifty.gif"></p></div>',
         },
