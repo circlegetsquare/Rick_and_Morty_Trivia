@@ -18,7 +18,7 @@ p {
 	margin: 0px auto;
 	height: 97vh;
 	background-color: #ffffff;
-	overflow: auto;
+	overflow: hidden;
 }
 
 .btn {
