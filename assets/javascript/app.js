@@ -88,7 +88,7 @@
             this.noAnswerNum = 0;
             $('#correct-score').html(0);
             $('#missed-score').html(0);
-            $('#no-answer-score-score').html(0);
+            $('#no-answer-score').html(0);
             $('#btn-holder-js').empty();
             this.displayQuestion();
 
@@ -135,7 +135,7 @@
             this.correctNum++;
             $('#correct-score').html(this.correctNum);
             $('#timer-js').html('GOT IT!')
-            setTimeout(this.answerContent, 3500);
+            setTimeout(this.answerContent, 4000);
         },
 
         missedAnswer: function() {
@@ -145,7 +145,7 @@
             this.missedNum++;
             $('#missed-score').html(this.missedNum);
             $('#timer-js').html('NOPE!')
-            setTimeout(this.answerContent, 3500);
+            setTimeout(this.answerContent, 4000);
         },
 
         noAnswer: function() {
@@ -155,7 +155,7 @@
             this.noAnswerNum++;
             $('#no-answer-score').html(this.noAnswerNum);
             $('#timer-js').html('TOO LATE!')
-            setTimeout(this.answerContent, 3500);
+            setTimeout(this.answerContent, 4000);
         },
 
         gameOver: function() {
@@ -171,7 +171,7 @@
             $('#question-js').html('Answer: ' + questions[game.questionNum].answer[questions[game.questionNum].correctAnswer]);
             $('#image-js').html(questions[game.questionNum].answerImage);
             game.questionNum++;
-            setTimeout(game.displayQuestion, 6000);
+            setTimeout(game.displayQuestion, 7000);
         },
     };
 
