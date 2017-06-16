@@ -28,7 +28,7 @@
             answerImage: '<img class="answerImg" src="assets/images/drinks_wine.gif">',
         },
         {
-            question: "What the name of the blue creatures created to serve a singular purpose for which they will go to any length to fulfill?",
+            question: "What's the name of the blue creatures created to serve a singular purpose for which they will go to any length to fulfill?",
             answer: ["Glip Glorps", "Flurbens", "Mr. Meeseeks", "Jerry"],
             correctAnswer: 2,
             answerImage: '<img class="answerImg"  src="assets/images/meeseeks.gif">',
@@ -155,7 +155,6 @@
             this.noAnswerNum++;
             $('#no-answer-score').html(this.noAnswerNum);
             $('#timer-js').html('TOO LATE!')
-            this.questionNum++;
             setTimeout(this.answerContent, 3500);
         },
 
