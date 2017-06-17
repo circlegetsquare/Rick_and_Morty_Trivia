@@ -160,8 +160,9 @@
 
         gameOver: function() {
             timer.stopTimer();
+            $('#question-js').empty();
             $('#btn-holder-js').html('<button id="start" class="btn">PLAY AGAIN!</button>');
-            $('#question-js').html('<img class="answerImg" src="assets/images/Like_what_you_got.gif">');
+            $('#image-js').html('<img class="answerImg" src="assets/images/Like_what_you_got.gif">');
             $('#timer-js').html('GAME OVER!')
             this.questionNum++;
             $('#start').on('click', function() {game.resetGame();})
